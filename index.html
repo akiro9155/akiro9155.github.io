@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ΛZⴿΣV-БⵡZⴿΛ</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .pagina {
+      min-height: 100vh;
+      position: relative;
+      padding: 20px;
+    }
+
+    /* =========================
+       SÍMBOLO DE FUNDO
+       ========================= */
+
+    .simbolo-fundo {
+      position: fixed;
+      z-index: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 650px;
+      line-height: 1;
+      color: #fff;
+      opacity: 0.10;
+      user-select: none;
+      pointer-events: none;
+      animation: girarSimbolo 20s linear infinite;
+    }
+
+    @keyframes girarSimbolo {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .conteudo {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+    }
+
+    /* =========================
+       TOPO
+       ========================= */
+
+    .topo {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .topo a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .topo a:hover {
+      text-decoration: underline;
+    }
+
+    .menu {
+      width: 38px;
+      height: 38px;
+      border: none;
+      border-radius: 50%;
+      background: transparent;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .menu:hover {
+      background: #181818;
+    }
+
+    /* =========================
+       VERSÃO DO SITE
+       ========================= */
+
+
+    /* =========================
+       PÁGINA INICIAL
+       ========================= */
+
+    .centro {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      min-height: calc(100vh - 100px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: clamp(42px, 8vw, 90px);
+      font-weight: 400;
+      letter-spacing: -3px;
+      line-height: 1.1;
+      margin: 0 0 18px 0;
+      text-align: center;
+      color: #fff;
+      white-space: nowrap;
+      user-select: none;
+
+      text-shadow:
+        0 0 10px #000,
+        0 0 20px #000;
+    }
+
+    /* =========================
+       BARRA DE PESQUISA
+       ========================= */
+
+    .pesquisa {
+      width: min(90vw, 650px);
+      height: 54px;
+
+      /* bordas quadradas */
+      border: 1px solid #666;
+      border-radius: 4px;
+
+      background: rgba(0, 0, 0, 0.9);
+
+      display: flex;
+      align-items: center;
+
+      padding: 0 13px;
+      margin: 0 auto;
+    }
+
+    /* botão + */
+
+    .botao-adicionar {
+      width: 30px;
+      height: 30px;
+
+      border: none;
+      background: transparent;
+
+      color: #aaa;
+      font-size: 28px;
+      line-height: 1;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 8px;
+    }
+
+    .botao-adicionar:hover {
+      color: #fff;
+    }
+
+    /* campo */
+
+    .campo {
+      flex: 1;
+      height: 100%;
+
+      border: none;
+      outline: none;
+      background: transparent;
+
+      color: #fff;
+
+      /* aumentado */
+      font-size: 19px;
+
+      letter-spacing: 0.2px;
+    }
+
+    /* botões internos */
+
+    .botoes-pesquisa {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: 8px;
+    }
+
+    .botao-pesquisa {
+      width: 34px;
+      height: 34px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: transparent;
+      color: #aaa;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+    .botao-pesquisa:hover {
+      color: #fff;
+      background: #181818;
+    }
+
+    /* teclado */
+
+    .icone-teclado {
+      font-size: 19px;
+    }
+
+    /* microfone */
+
+    .icone-microfone {
+      font-size: 19px;
+    }
+
+    /* IA */
+
+    .botao-ia {
+      font-size: 18px;
+    }
+
+    .versao-site {
+      position: fixed;
+      left: 18px;
+      bottom: 58px;
+      z-index: 20;
+      color: #555;
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      user-select: none;
+    }
+
+    .mensagem {
+      margin-top: 30px;
+      color: #888;
+      font-size: 13px;
+      min-height: 20px;
+    }
+
+    /* =========================
+       RODAPÉ
+       ========================= */
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+
+      background: #000;
+      border-top: 1px solid #151515;
+
+      color: #666;
+
+      padding: 15px;
+
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* =========================
+       RESULTADOS
+       ========================= */
+
+    .resultados {
+      display: none;
+
+      width: 100%;
+      max-width: 1100px;
+
+      /* desloca os resultados para a esquerda */
+      margin-left: 7%;
+      margin-right: auto;
+
+      padding-top: 25px;
+      padding-bottom: 100px;
+    }
+
+    .resultados-topo {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+
+      gap: 25px;
+
+      margin-bottom: 25px;
+    }
+
+    .logo-resultados {
+      color: #fff;
+      text-decoration: none;
+
+      font-size: 30px;
+      font-weight: 400;
+
+      letter-spacing: -2px;
+      white-space: nowrap;
+
+      cursor: pointer;
+    }
+
+    .pesquisa-resultados {
+      flex: 1;
+
+      height: 48px;
+
+      border: 1px solid #666;
+
+      /* também quadrada nos resultados */
+      border-radius: 4px;
+
+      background: rgba(0, 0, 0, 0.95);
+
+      display: flex;
+      align-items: center;
+
+      padding: 0 12px;
+    }
+
+    .pesquisa-resultados input {
+      flex: 1;
+
+      height: 100%;
+
+      border: none;
+      outline: none;
+
+      background: transparent;
+
+      color: #fff;
+
+      font-size: 17px;
+    }
+
+    .pesquisa-resultados button {
+      width: 34px;
+      height: 34px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: transparent;
+
+      color: #aaa;
+
+      font-size: 20px;
+
+      cursor: pointer;
+    }
+
+    .pesquisa-resultados button:hover {
+      color: #fff;
+      background: #181818;
+    }
+
+    .abas {
+      display: flex;
+      gap: 28px;
+
+      border-bottom: 1px solid #222;
+
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+    }
+
+    .aba {
+      color: #888;
+
+      background: transparent;
+      border: none;
+
+      cursor: pointer;
+
+      font-size: 14px;
+    }
+
+    .aba:hover {
+      color: #fff;
+    }
+
+    .aba.ativa {
+      color: #fff;
+    }
+
+    .texto-pesquisa {
+      color: #777;
+      font-size: 13px;
+
+      margin-bottom: 25px;
+    }
+
+    .lista-resultados {
+      width: 100%;
+      text-align: left;
+    }
+
+    .resultado {
+      margin-bottom: 30px;
+      max-width: 750px;
+    }
+
+    .resultado-url {
+      color: #777;
+      font-size: 13px;
+
+      margin-bottom: 5px;
+
+      word-break: break-all;
+    }
+
+    .resultado-titulo {
+      color: #fff;
+
+      font-size: 20px;
+
+      text-decoration: none;
+
+      display: block;
+
+      margin-bottom: 7px;
+    }
+
+    .resultado-titulo:hover {
+      text-decoration: underline;
+    }
+
+    .resultado-descricao {
+      color: #aaa;
+
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .carregando,
+    .sem-resultados {
+      color: #888;
+
+      font-size: 14px;
+
+      padding: 30px 0;
+    }
+
+    /* =========================
+       TECLADO ASKEV
+       ========================= */
+
+    .fundo-teclado {
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 50;
+
+      background: rgba(0, 0, 0, 0.55);
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fundo-teclado.aberto {
+      display: flex;
+    }
+
+    .teclado-popup {
+      position: relative;
+
+      width: min(92vw, 850px);
+
+      background: rgba(0, 0, 0, 0.94);
+
+      border: 1px solid #666;
+
+      padding: 28px 28px 34px;
+
+      box-shadow:
+        0 0 30px rgba(255,255,255,0.08);
+    }
+
+    .titulo-teclado {
+      color: #fff;
+
+      font-size: 16px;
+
+      margin-bottom: 25px;
+    }
+
+    .fechar-teclado {
+      position: absolute;
+
+      top: 14px;
+      right: 16px;
+
+      width: 32px;
+      height: 32px;
+
+      border: none;
+
+      background: transparent;
+
+      color: #aaa;
+
+      font-size: 24px;
+
+      cursor: pointer;
+    }
+
+    .fechar-teclado:hover {
+      color: #fff;
+    }
+
+    /* =========================
+       NÚMEROS
+       ========================= */
+
+    .linha-numeros,
+    .linha-letras {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      margin-bottom: 8px;
+    }
+
+    .tecla {
+      width: 54px;
+      height: 54px;
+
+      border: 1px solid #555;
+
+      border-radius: 9px;
+
+      background: #111;
+
+      color: #fff;
+
+      font-size: 18px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition:
+        background 0.1s,
+        border-color 0.1s;
+    }
+
+    .tecla:hover {
+      background: #222;
+      border-color: #aaa;
+    }
+
+    .tecla:active {
+      background: #333;
+    }
+
+    /* =========================
+       LINHAS DO ALFABETO
+       ========================= */
+
+    .linha-1 {
+      margin-top: 4px;
+    }
+
+    .linha-2 {
+      padding-left: 30px;
+    }
+
+    .linha-3 {
+      padding-left: 60px;
+    }
+
+    /* =========================
+       BARRA INFERIOR DO TECLADO
+       ========================= */
+
+    .linha-inferior {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 8px;
+
+      margin-top: 10px;
+    }
+
+    /* botão de símbolos */
+
+    .tecla-simbolos {
+      width: 110px;
+    }
+
+    /* espaço maior */
+
+    .tecla-espaco {
+      width: 260px;
+    }
+
+    /* apagar */
+
+    .tecla-apagar {
+      width: 110px;
+    }
+
+    /* =========================
+       PAINEL DE SÍMBOLOS
+       ========================= */
+
+    .painel-simbolos {
+      display: none;
+
+      margin-top: 18px;
+
+      padding-top: 18px;
+
+      border-top: 1px solid #222;
+    }
+
+    .painel-simbolos.aberto {
+      display: block;
+    }
+
+    .grade-simbolos {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 8px;
+    }
+
+    .simbolo-tecla {
+      width: 50px;
+      height: 50px;
+
+      border: 1px solid #555;
+
+      border-radius: 8px;
+
+      background: #111;
+
+      color: #fff;
+
+      font-size: 18px;
+
+      cursor: pointer;
+    }
+
+    .simbolo-tecla:hover {
+      background: #222;
+    }
+
+    /* =========================
+       RESPONSIVO
+       ========================= */
+
+    @media (max-width: 900px) {
+
+      .resultados {
+        margin-left: 3%;
+        margin-right: 3%;
+        width: auto;
+      }
+
+      .tecla {
+        width: 45px;
+        height: 48px;
+      }
+
+      .tecla-espaco {
+        width: 210px;
+      }
+
+      .tecla-simbolos,
+      .tecla-apagar {
+        width: 90px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .logo {
+        font-size: 38px;
+      }
+
+      .simbolo-fundo {
+        font-size: 430px;
+      }
+
+      .pesquisa {
+        height: 52px;
+      }
+
+      .campo {
+        font-size: 17px;
+      }
+
+      .botao-pesquisa {
+        width: 30px;
+        height: 30px;
+      }
+
+      .resultados {
+        padding-top: 10px;
+      }
+
+      .resultados-topo {
+        gap: 12px;
+      }
+
+      .logo-resultados {
+        font-size: 22px;
+      }
+
+      .pesquisa-resultados {
+        height: 46px;
+      }
+
+      .abas {
+        gap: 18px;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .teclado-popup {
+        padding: 20px 10px 25px;
+      }
+
+      .tecla {
+        width: 30px;
+        height: 40px;
+
+        font-size: 14px;
+
+        border-radius: 6px;
+      }
+
+      .linha-2 {
+        padding-left: 12px;
+      }
+
+      .linha-3 {
+        padding-left: 24px;
+      }
+
+      .tecla-simbolos,
+      .tecla-apagar {
+        width: 75px;
+      }
+
+      .tecla-espaco {
+        width: 130px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="simbolo-fundo">𖤓</div>
+
+  <div class="pagina">
+
+    <div class="conteudo">
+
+      <!-- =========================
+           TOPO
+           ========================= -->
+
+      <div class="topo">
+
+        <a href="#" onclick="mostrarImagens(event)">
+          IMΛ♇ΣПZ
+        </a>
+
+        <a href="#" onclick="mostrarSobre(event)">
+          ZⵁБⴽΣ
+        </a>
+
+        <button
+          class="menu"
+          onclick="mostrarMenu()"
+          aria-label="Menu"
+        >
+          ☰
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           PÁGINA INICIAL
+           ========================= -->
+
+      <main
+        class="centro"
+        id="paginaInicial"
+      >
+
+        <h1 class="logo">
+          ΛZⴿΣV-БⵡZⴿΛ
+        </h1>
+
+
+        <form
+          class="pesquisa"
+          onsubmit="pesquisar(event)"
+        >
+
+          <!-- ADICIONAR -->
+
+          <button
+            type="button"
+            class="botao-adicionar"
+            onclick="adicionarArquivo()"
+            aria-label="Adicionar"
+          >
+            +
+          </button>
+
+
+          <!-- CAMPO -->
+
+          <input
+            id="campoPesquisa"
+            class="campo"
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+          >
+
+
+          <!-- BOTÕES -->
+
+          <div class="botoes-pesquisa">
+
+            <!-- TECLADO -->
+
+            <button
+              type="button"
+              class="botao-pesquisa icone-teclado"
+              onclick="abrirTeclado()"
+              aria-label="Abrir teclado"
+            >
+              ⌨
+            </button>
+
+
+            <!-- MICROFONE -->
+
+            <button
+              type="button"
+              class="botao-pesquisa icone-microfone"
+              onclick="pesquisarPorVoz()"
+              aria-label="Pesquisa por voz"
+            >
+              🎙
+            </button>
+
+
+            <!-- IA -->
+
+            <button
+              type="button"
+              class="botao-pesquisa botao-ia"
+              onclick="botaoIA()"
+              aria-label="IA"
+            >
+              ✦
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <div
+          id="mensagem"
+          class="mensagem"
+        ></div>
+
+      </main>
+
+
+      <!-- =========================
+           RESULTADOS
+           ========================= -->
+
+      <main
+        class="resultados"
+        id="paginaResultados"
+      >
+
+        <div class="resultados-topo">
+
+          <a
+            href="#"
+            class="logo-resultados"
+            onclick="voltarInicio(event)"
+          >
+            ΛZⴿΣV-БⵡZⴿΛ
+          </a>
+
+
+          <form
+            class="pesquisa-resultados"
+            onsubmit="pesquisarResultados(event)"
+          >
+
+            <input
+              id="campoResultados"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+            >
+
+            <button
+              type="button"
+              onclick="limparResultados()"
+              aria-label="Limpar"
+            >
+              ×
+            </button>
+
+            <button
+              type="submit"
+              aria-label="Pesquisar"
+            >
+              ⌕
+            </button>
+
+          </form>
+
+        </div>
+
+
+        <div class="abas">
+
+          <button
+            class="aba ativa"
+            onclick="selecionarAba(this)"
+          >
+            Tudo
+          </button>
+
+          <button
+            class="aba"
+            onclick="selecionarAba(this)"
+          >
+            Imagens
+          </button>
+
+          <button
+            class="aba"
+            onclick="selecionarAba(this)"
+          >
+            Vídeos
+          </button>
+
+        </div>
+
+
+        <div
+          class="texto-pesquisa"
+          id="textoPesquisa"
+        ></div>
+
+
+        <div
+          class="lista-resultados"
+          id="listaResultados"
+        ></div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       TECLADO POP-UP
+       ========================= -->
+
+  <div
+    class="fundo-teclado"
+    id="fundoTeclado"
+  >
+
+    <div class="teclado-popup">
+
+      <!-- X DO POP-UP -->
+
+      <button
+        class="fechar-teclado"
+        onclick="fecharTeclado()"
+        aria-label="Fechar teclado"
+      >
+        ×
+      </button>
+
+
+      <div class="titulo-teclado">
+        Teclado Askev
+      </div>
+
+
+      <!-- NÚMEROS -->
+
+      <div class="linha-numeros">
+
+        <button class="tecla" onclick="digitarTecla('1')">1</button>
+        <button class="tecla" onclick="digitarTecla('2')">2</button>
+        <button class="tecla" onclick="digitarTecla('3')">3</button>
+        <button class="tecla" onclick="digitarTecla('4')">4</button>
+        <button class="tecla" onclick="digitarTecla('5')">5</button>
+        <button class="tecla" onclick="digitarTecla('6')">6</button>
+        <button class="tecla" onclick="digitarTecla('7')">7</button>
+        <button class="tecla" onclick="digitarTecla('8')">8</button>
+        <button class="tecla" onclick="digitarTecla('9')">9</button>
+        <button class="tecla" onclick="digitarTecla('0')">0</button>
+
+      </div>
+
+
+      <!-- PRIMEIRA LINHA -->
+
+      <div class="linha-letras linha-1">
+
+        <button class="tecla" onclick="digitarTecla('Λ')">Λ</button>
+        <button class="tecla" onclick="digitarTecla('Б')">Б</button>
+        <button class="tecla" onclick="digitarTecla('ⵎ')">ⵎ</button>
+        <button class="tecla" onclick="digitarTecla('Ƌ')">Ƌ</button>
+        <button class="tecla" onclick="digitarTecla('Σ')">Σ</button>
+        <button class="tecla" onclick="digitarTecla('Г')">Г</button>
+        <button class="tecla" onclick="digitarTecla('♇')">♇</button>
+        <button class="tecla" onclick="digitarTecla('H')">H</button>
+        <button class="tecla" onclick="digitarTecla('I')">I</button>
+
+      </div>
+
+
+      <!-- SEGUNDA LINHA -->
+
+      <div class="linha-letras linha-2">
+
+        <button class="tecla" onclick="digitarTecla('⅃')">⅃</button>
+        <button class="tecla" onclick="digitarTecla('ⴿ')">ⴿ</button>
+        <button class="tecla" onclick="digitarTecla('L')">L</button>
+        <button class="tecla" onclick="digitarTecla('M')">M</button>
+        <button class="tecla" onclick="digitarTecla('П')">П</button>
+        <button class="tecla" onclick="digitarTecla('ⵁ')">ⵁ</button>
+        <button class="tecla" onclick="digitarTecla('P')">P</button>
+        <button class="tecla" onclick="digitarTecla('ꟼ')">ꟼ</button>
+        <button class="tecla" onclick="digitarTecla('ⴽ')">ⴽ</button>
+
+      </div>
+
+
+      <!-- TERCEIRA LINHA -->
+
+      <div class="linha-letras linha-3">
+
+        <button class="tecla" onclick="digitarTecla('Z')">Z</button>
+        <button class="tecla" onclick="digitarTecla('Т')">Т</button>
+        <button class="tecla" onclick="digitarTecla('ⵡ')">ⵡ</button>
+        <button class="tecla" onclick="digitarTecla('V')">V</button>
+        <button class="tecla" onclick="digitarTecla('ꟽ')">ꟽ</button>
+        <button class="tecla" onclick="digitarTecla('Ж')">Ж</button>
+        <button class="tecla" onclick="digitarTecla('𐊵')">𐊵</button>
+        <button class="tecla" onclick="digitarTecla('Ƶ')">Ƶ</button>
+
+      </div>
+
+
+      <!-- BOTÕES INFERIORES -->
+
+      <div class="linha-inferior">
+
+        <!-- SÍMBOLOS -->
+
+        <button
+          class="tecla tecla-simbolos"
+          onclick="alternarSimbolos()"
+        >
+          #?! 
+        </button>
+
+
+        <!-- ESPAÇO -->
+
+        <button
+          class="tecla tecla-espaco"
+          onclick="digitarTecla(' ')"
+        >
+          espaço
+        </button>
+
+
+        <!-- APAGAR -->
+
+        <button
+          class="tecla tecla-apagar"
+          onclick="apagarTecla()"
+        >
+          ⌫
+        </button>
+
+      </div>
+
+
+      <!-- PAINEL DE SÍMBOLOS -->
+
+      <div
+        class="painel-simbolos"
+        id="painelSimbolos"
+      >
+
+        <div class="grade-simbolos">
+
+          <button class="simbolo-tecla" onclick="digitarTecla('*')">★</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('?')">?</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('!')">!</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('%')">%</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('@')">@</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('#')">#</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('&')">&</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('+')">+</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('-')">−</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('=')">=</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('/')">/</button>
+          <button class="simbolo-tecla" onclick="digitarTecla('(')">(</button>
+          <button class="simbolo-tecla" onclick="digitarTecla(')')">)</button>
+          <button class="simbolo-tecla" onclick="digitarTecla(':')">:</button>
+          <button class="simbolo-tecla" onclick="digitarTecla(';')">;</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="versao-site">V: 0.0.1 ƋΣMⵁ</div>
+
+
+  <footer>
+    ΛZⴿΣV-БⵡZⴿΛ
+  </footer>
+
+
+  <script>
+
+    /* =========================
+       ALFABETO ASKEV
+       ========================= */
+
+    const alfabeto = {
+
+      A: "Λ",
+      B: "Б",
+      C: "ⵎ",
+      D: "Ƌ",
+      E: "Σ",
+      F: "Г",
+      G: "♇",
+      H: "H",
+      I: "I",
+      J: "⅃",
+      K: "ⴿ",
+      L: "L",
+      M: "M",
+      N: "П",
+      O: "ⵁ",
+      P: "P",
+      Q: "ꟼ",
+      R: "ⴽ",
+      S: "Z",
+      T: "Т",
+      U: "ⵡ",
+      V: "V",
+      W: "ꟽ",
+      X: "Ж",
+      Y: "𐊵",
+      Z: "Ƶ"
+
+    };
+
+
+    /* =========================
+       ALFABETO REVERSO
+       ========================= */
+
+    const reverso = {};
+
+    for (const letra in alfabeto) {
+
+      reverso[alfabeto[letra]] =
+        letra;
+
+    }
+
+
+    /* =========================
+       LATIM → ASKEV
+       COM ACENTOS
+       ========================= */
+
+    function converterTexto(texto) {
+
+      const normalizado =
+        texto.normalize("NFD");
+
+      let resultado = "";
+
+      for (const caractere of normalizado) {
+
+        if (
+          /[\u0300-\u036f]/u.test(
+            caractere
+          )
+        ) {
+
+          resultado += caractere;
+
+          continue;
+        }
+
+        const letra =
+          caractere.toUpperCase();
+
+        resultado +=
+          alfabeto[letra] ||
+          caractere;
+
+      }
+
+      return resultado;
+    }
+
+
+    /* =========================
+       ASKEV → LATIM
+       ========================= */
+
+    function converterParaOriginal(texto) {
+
+      let resultado = "";
+
+      for (const caractere of texto) {
+
+        if (
+          /[\u0300-\u036f]/u.test(
+            caractere
+          )
+        ) {
+
+          resultado += caractere;
+
+          continue;
+        }
+
+        resultado +=
+          reverso[caractere] ||
+          caractere;
+
+      }
+
+      return resultado.normalize("NFC");
+    }
+
+
+    /* =========================
+       ELEMENTOS
+       ========================= */
+
+    const campo =
+      document.getElementById(
+        "campoPesquisa"
+      );
+
+    const mensagem =
+      document.getElementById(
+        "mensagem"
+      );
+
+    const paginaInicial =
+      document.getElementById(
+        "paginaInicial"
+      );
+
+    const paginaResultados =
+      document.getElementById(
+        "paginaResultados"
+      );
+
+    const campoResultados =
+      document.getElementById(
+        "campoResultados"
+      );
+
+    const listaResultados =
+      document.getElementById(
+        "listaResultados"
+      );
+
+    const textoPesquisa =
+      document.getElementById(
+        "textoPesquisa"
+      );
+
+    const fundoTeclado =
+      document.getElementById(
+        "fundoTeclado"
+      );
+
+    const painelSimbolos =
+      document.getElementById(
+        "painelSimbolos"
+      );
+
+
+    /* =========================
+       DIGITAÇÃO PÁGINA INICIAL
+       ========================= */
+
+    campo.addEventListener(
+      "input",
+      function () {
+
+        const inicio =
+          campo.selectionStart;
+
+        campo.value =
+          converterTexto(
+            campo.value
+          );
+
+        campo.setSelectionRange(
+          inicio,
+          inicio
+        );
+
+      }
+    );
+
+
+    /* =========================
+       DIGITAÇÃO RESULTADOS
+       ========================= */
+
+    campoResultados.addEventListener(
+      "input",
+      function () {
+
+        const inicio =
+          campoResultados.selectionStart;
+
+        campoResultados.value =
+          converterTexto(
+            campoResultados.value
+          );
+
+        campoResultados.setSelectionRange(
+          inicio,
+          inicio
+        );
+
+      }
+    );
+
+
+    /* =========================
+       PESQUISA
+       ========================= */
+
+    function pesquisar(event) {
+
+      event.preventDefault();
+
+      executarPesquisa(
+        campo.value
+      );
+
+    }
+
+
+    function executarPesquisa(
+      termoAskev
+    ) {
+
+      if (!termoAskev.trim()) {
+
+        campo.focus();
+
+        return;
+      }
+
+      const termoOriginal =
+        converterParaOriginal(
+          termoAskev
+        ).trim();
+
+
+      paginaInicial.style.display =
+        "none";
+
+      paginaResultados.style.display =
+        "block";
+
+
+      campoResultados.value =
+        converterTexto(
+          termoOriginal
+        );
+
+
+      window.scrollTo(
+        0,
+        0
+      );
+
+
+      buscarNaWeb(
+        termoOriginal
+      );
+
+    }
+
+
+    /* =========================
+       PESQUISA NOS RESULTADOS
+       ========================= */
+
+    function pesquisarResultados(event) {
+
+      event.preventDefault();
+
+      const termoAskev =
+        campoResultados.value.trim();
+
+
+      if (!termoAskev) {
+
+        campoResultados.focus();
+
+        return;
+      }
+
+
+      const termoOriginal =
+        converterParaOriginal(
+          termoAskev
+        ).trim();
+
+
+      buscarNaWeb(
+        termoOriginal
+      );
+
+    }
+
+
+    /* =========================
+       BUSCA WIKIPÉDIA
+       ========================= */
+
+    async function buscarNaWeb(
+      termo
+    ) {
+
+      textoPesquisa.textContent =
+        "Pesquisa: " +
+        converterTexto(
+          termo
+        );
+
+
+      listaResultados.innerHTML =
+        '<div class="carregando">' +
+        "Pesquisando..." +
+        "</div>";
+
+
+      try {
+
+        const url =
+          "https://pt.wikipedia.org/w/api.php" +
+          "?action=query" +
+          "&list=search" +
+          "&srsearch=" +
+          encodeURIComponent(
+            termo
+          ) +
+          "&format=json" +
+          "&origin=*";
+
+
+        const resposta =
+          await fetch(url);
+
+
+        if (!resposta.ok) {
+
+          throw new Error(
+            "Erro na pesquisa"
+          );
+
+        }
+
+
+        const dados =
+          await resposta.json();
+
+
+        const resultados =
+          dados.query &&
+          dados.query.search
+            ? dados.query.search
+            : [];
+
+
+        listaResultados.innerHTML =
+          "";
+
+
+        if (!resultados.length) {
+
+          listaResultados.innerHTML =
+            '<div class="sem-resultados">' +
+            "Nenhum resultado encontrado." +
+            "</div>";
+
+          return;
+        }
+
+
+        resultados.forEach(
+          function (resultado) {
+
+            const bloco =
+              document.createElement(
+                "article"
+              );
+
+            bloco.className =
+              "resultado";
+
+
+            const titulo =
+              document.createElement(
+                "a"
+              );
+
+            titulo.className =
+              "resultado-titulo";
+
+
+            titulo.textContent =
+              converterTexto(
+                resultado.title
+              );
+
+
+            titulo.href =
+              "https://pt.wikipedia.org/wiki/" +
+              encodeURIComponent(
+                resultado.title.replaceAll(
+                  " ",
+                  "_"
+                )
+              );
+
+
+            titulo.target =
+              "_blank";
+
+
+            const urlTexto =
+              document.createElement(
+                "div"
+              );
+
+            urlTexto.className =
+              "resultado-url";
+
+
+            urlTexto.textContent =
+              "pt.wikipedia.org/wiki/" +
+              resultado.title;
+
+
+            const descricao =
+              document.createElement(
+                "div"
+              );
+
+            descricao.className =
+              "resultado-descricao";
+
+
+            const textoLimpo =
+              resultado.snippet.replace(
+                /<[^>]*>/g,
+                ""
+              );
+
+
+            descricao.textContent =
+              converterTexto(
+                textoLimpo
+              ) +
+              "...";
+
+
+            bloco.appendChild(
+              urlTexto
+            );
+
+            bloco.appendChild(
+              titulo
+            );
+
+            bloco.appendChild(
+              descricao
+            );
+
+
+            listaResultados.appendChild(
+              bloco
+            );
+
+          }
+        );
+
+
+      } catch (erro) {
+
+        listaResultados.innerHTML =
+          '<div class="sem-resultados">' +
+          "Não foi possível realizar a pesquisa agora." +
+          "</div>";
+
+      }
+
+    }
+
+
+    /* =========================
+       LIMPAR PESQUISA
+       ========================= */
+
+    function limparPesquisa() {
+
+      campo.value = "";
+
+      mensagem.textContent = "";
+
+      campo.focus();
+
+    }
+
+
+    function limparResultados() {
+
+      campoResultados.value = "";
+
+      campoResultados.focus();
+
+    }
+
+
+    /* =========================
+       PESQUISA POR VOZ
+       ========================= */
+
+    function pesquisarPorVoz() {
+
+      const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+
+      if (!SpeechRecognition) {
+
+        mensagem.textContent =
+          "A pesquisa por voz não é compatível com este navegador.";
+
+        return;
+      }
+
+
+      const reconhecimento =
+        new SpeechRecognition();
+
+
+      reconhecimento.lang =
+        "pt-BR";
+
+
+      reconhecimento.start();
+
+
+      mensagem.textContent =
+        "Ouvindo...";
+
+
+      reconhecimento.onresult =
+        function (event) {
+
+          const texto =
+            event.results[0][0].transcript;
+
+
+          campo.value =
+            converterTexto(
+              texto
+            );
+
+
+          mensagem.textContent =
+            "";
+
+
+          executarPesquisa(
+            campo.value
+          );
+
+        };
+
+
+      reconhecimento.onerror =
+        function () {
+
+          mensagem.textContent =
+            "Não foi possível realizar a pesquisa por voz.";
+
+        };
+
+    }
+
+
+    /* =========================
+       BOTÃO +
+       ========================= */
+
+    function adicionarArquivo() {
+
+      mensagem.textContent =
+        "Adicionar imagem ou documento — função em desenvolvimento.";
+
+    }
+
+
+    /* =========================
+       BOTÃO IA
+       ========================= */
+
+    function botaoIA() {
+
+      mensagem.textContent =
+        "A IA do ΛZⴿΣV-БⵡZⴿΛ será adicionada aqui.";
+
+    }
+
+
+    /* =========================
+       MENU
+       ========================= */
+
+    function mostrarMenu() {
+
+      mensagem.textContent =
+        "Menu da ΛZⴿΣV-БⵡZⴿΛ";
+
+    }
+
+
+    /* =========================
+       IMAGENS
+       ========================= */
+
+    function mostrarImagens(event) {
+
+      event.preventDefault();
+
+      mensagem.textContent =
+        "A pesquisa de imagens do ΛZⴿΣV-БⵡZⴿΛ será adicionada aqui.";
+
+    }
+
+
+    /* =========================
+       SOBRE
+       ========================= */
+
+    function mostrarSobre(event) {
+
+      event.preventDefault();
+
+      mensagem.textContent =
+        "ΛZⴿΣV-БⵡZⴿΛ — mecanismo de busca.";
+
+    }
+
+
+    /* =========================
+       VOLTAR AO INÍCIO
+       ========================= */
+
+    function voltarInicio(event) {
+
+      event.preventDefault();
+
+
+      paginaResultados.style.display =
+        "none";
+
+
+      paginaInicial.style.display =
+        "flex";
+
+
+      campo.value = "";
+
+
+      campo.focus();
+
+
+      window.scrollTo(
+        0,
+        0
+      );
+
+    }
+
+
+    /* =========================
+       ABAS
+       ========================= */
+
+    function selecionarAba(
+      elemento
+    ) {
+
+      document
+        .querySelectorAll(".aba")
+        .forEach(
+          function (aba) {
+
+            aba.classList.remove(
+              "ativa"
+            );
+
+          }
+        );
+
+
+      elemento.classList.add(
+        "ativa"
+      );
+
+    }
+
+
+    /* =========================
+       ABRIR TECLADO
+       ========================= */
+
+    function abrirTeclado() {
+
+      fundoTeclado.classList.add(
+        "aberto"
+      );
+
+    }
+
+
+    /* =========================
+       FECHAR TECLADO
+       ========================= */
+
+    function fecharTeclado() {
+
+      fundoTeclado.classList.remove(
+        "aberto"
+      );
+
+      painelSimbolos.classList.remove(
+        "aberto"
+      );
+
+    }
+
+
+    /* =========================
+       DIGITAR PELO TECLADO
+       ========================= */
+
+    function digitarTecla(
+      caractere
+    ) {
+
+      campo.focus();
+
+
+      const inicio =
+        campo.selectionStart;
+
+      const fim =
+        campo.selectionEnd;
+
+
+      const antes =
+        campo.value.substring(
+          0,
+          inicio
+        );
+
+      const depois =
+        campo.value.substring(
+          fim
+        );
+
+
+      let valor =
+        antes +
+        caractere +
+        depois;
+
+
+      /*
+        Se for letra latina,
+        transforma para Askev.
+      */
+
+      valor =
+        converterTexto(
+          valor
+        );
+
+
+      campo.value =
+        valor;
+
+
+      const novaPosicao =
+        inicio +
+        caractere.length;
+
+
+      campo.setSelectionRange(
+        novaPosicao,
+        novaPosicao
+      );
+
+    }
+
+
+    /* =========================
+       APAGAR
+       ========================= */
+
+    function apagarTecla() {
+
+      campo.focus();
+
+
+      const inicio =
+        campo.selectionStart;
+
+      const fim =
+        campo.selectionEnd;
+
+
+      if (
+        inicio !== fim
+      ) {
+
+        campo.value =
+          campo.value.substring(
+            0,
+            inicio
+          ) +
+          campo.value.substring(
+            fim
+          );
+
+
+        campo.setSelectionRange(
+          inicio,
+          inicio
+        );
+
+        return;
+      }
+
+
+      if (
+        inicio <= 0
+      ) {
+
+        return;
+      }
+
+
+      /*
+        Apaga corretamente
+        caracteres Unicode.
+      */
+
+      const antes =
+        Array.from(
+          campo.value
+        );
+
+
+      antes.splice(
+        inicio - 1,
+        1
+      );
+
+
+      campo.value =
+        antes.join("");
+
+
+      campo.setSelectionRange(
+        inicio - 1,
+        inicio - 1
+      );
+
+    }
+
+
+    /* =========================
+       SÍMBOLOS
+       ========================= */
+
+    function alternarSimbolos() {
+
+      painelSimbolos.classList.toggle(
+        "aberto"
+      );
+
+    }
+
+
+    /* =========================
+       FECHAR AO CLICAR FORA
+       ========================= */
+
+    fundoTeclado.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          event.target ===
+          fundoTeclado
+        ) {
+
+          fecharTeclado();
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
